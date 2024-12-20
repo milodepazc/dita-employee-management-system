@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# Client - Dita Employee Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend of the Dita Employee Management System, built with **React**, **TypeScript**, and **Vite**. The client communicates with the backend API to fetch and manage employee data.
 
-Currently, two official plugins are available:
+## Features
+- Responsive UI for managing employees.
+- Fetches data from the backend API (`/employees` endpoint).
+- Displays employee details in a table format.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+1. Navigate to the `client` directory:
+   ```bash
+   cd client
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Expanding the ESLint configuration
+## Running the App
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+2. Open the app in your browser at [http://localhost:5173](http://localhost:5173).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Environment Variables
+This app uses environment variables to configure the API endpoint. Create a `.env` file in the `client` directory with the following:
+```env
+VITE_API_URL=http://localhost:3001
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Project Structure
 ```
+client/
+├── src/
+│   ├── hooks/          # Custom React hooks
+│   ├── App.tsx         # Main application file
+│   ├── index.tsx       # Entry point
+│   ├── styles/         # Styling files
+├── public/             # Static assets
+├── .env                # Environment variables
+```
+
+## Available Scripts
+- **`npm run dev`**: Starts the development server.
+- **`npm run build`**: Builds the app for production.
+- **`npm run preview`**: Previews the production build.
+
+## Dependencies
+- **React**
+- **Vite**
+- **Axios**
+
+## TODO
+- Implement employee CRUD operations.
+- Add advanced filtering and sorting options.
+
